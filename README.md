@@ -2,6 +2,7 @@
 
 A filter for toxic-words in English, Spanish, French, and Arabic 
 
+
 ## Installation
 
     npm i unwashed-words --save
@@ -217,6 +218,7 @@ Add words to whitelist filter
 
 -   `word` **...[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Word(s) to add to whitelist.
 
+## inspired by - bad-words
 
 ## License
 
