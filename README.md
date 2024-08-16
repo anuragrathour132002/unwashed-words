@@ -15,6 +15,23 @@ var Filter = require('unwashed-words'),
 console.log(filter.clean("Don't be an ash0le")); //Don't be an a*****
 ```
 
+```jsx
+import React from 'react';
+import Filter from 'unwashed-words';
+
+function App() {
+  const filter = new Filter();
+
+  return (
+    <div>
+      {filter.clean("Don't be an ash0le")} {/* Output: Don't be an a***** */}
+    </div>
+  );
+}
+
+export default App;
+```
+
 ### Placeholder Overrides
 
 ```js
@@ -22,6 +39,23 @@ var Filter = require('unwashed-words');
 var customFilter = new Filter({ placeHolder: 'x'});
 
 customFilter.clean("Don't be an ash0le"); //Don't be an axxxxx
+```
+
+```jsx
+import React from 'react';
+import Filter from 'unwashed-words';
+
+function App() {
+  const customFilter = new Filter({ placeHolder: 'x' });
+
+  return (
+    <div>
+      {customFilter.clean("Don't be an ash0le")} {/* Output: Don't be an axxxxx */}
+    </div>
+  );
+}
+
+export default App;
 ```
 
 ### Add words to the blacklist
@@ -48,11 +82,48 @@ var filter = new Filter({ list: ['some', 'bad', 'word'] });
 filter.clean("some bad word!") //s*** b** w***!
 ```
 
+```jsx
+import React from 'react';
+import Filter from 'unwashed-words';
+
+function App() {
+  const filter = new Filter();
+
+  // Adding words to the blacklist
+  filter.addWords('some', 'bad', 'word');
+
+  return (
+    <div>
+      {filter.clean("some bad word!")} {/* Output: s*** b** w***! */}
+    </div>
+  );
+}
+
+export default App;
+```
+
 ### Instantiate with an empty list
 
 ```js
 var filter = new Filter({ emptyList: true }); 
 filter.clean('hell this wont clean anything'); //hell this wont clean anything
+```
+
+```jsx
+import React from 'react';
+import Filter from 'unwashed-words';
+
+function App() {
+  const filter = new Filter({ emptyList: true });
+
+  return (
+    <div>
+      {filter.clean('hell this wont clean anything')} {/* Output: hell this wont clean anything */}
+    </div>
+  );
+}
+
+export default App;
 ```
 
 ### Remove words from the blacklist
@@ -71,6 +142,26 @@ let removeWords = ['hells', 'sadist'];
 filter.removeWords(...removeWords);
 
 filter.clean("some sadist hells word!"); //some sadist hells word!
+```
+
+```jsx
+import React from 'react';
+import Filter from 'unwashed-words';
+
+function App() {
+  const filter = new Filter();
+
+  // Removing specific words from the blacklist
+  filter.removeWords('hells', 'sadist');
+
+  return (
+    <div>
+      {filter.clean("some hells word!")} {/* Output: some hells word! */}
+    </div>
+  );
+}
+
+export default App;
 ```
 
 
