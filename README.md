@@ -24,15 +24,6 @@ var customFilter = new Filter({ placeHolder: 'x'});
 customFilter.clean("Don't be an ash0le"); //Don't be an axxxxx
 ```
 
-### Regex Overrides
-
-```js
-var filter = new Filter({ regex: /\*|\.|$/gi });
-
-var filter = new Filter({ replaceRegex:  /[A-Za-z0-9가-힣_]/g }); 
-//multilingual support for word filtering
-```
-
 ### Add words to the blacklist
 
 ```js
