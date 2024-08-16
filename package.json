@@ -1,0 +1,41 @@
+{
+  "name": "unwashed-words",
+  "version": "1.0.0",
+  "description": "A javascript filter for unwashed words",
+  "main": "./lib/unwashed-words",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec",
+    "docs": "./node_modules/.bin/documentation readme --section API ./lib/unwashed-words.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "curse",
+    "words",
+    "profanity",
+    "filter",
+    "unwashed-words",
+    "Spanish",
+    "French",
+    "English",
+    "Arabic"
+  ],
+  "dependencies": {
+    "badwords-list": "^1.0.0"
+  },
+  "devDependencies": {
+    "better-assert": "1.0.0",
+    "documentation": "^5.3.3",
+    "mocha": "^5.2.0"
+  },
+  "author": "Anurag Rathour",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}
