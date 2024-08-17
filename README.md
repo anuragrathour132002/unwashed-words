@@ -9,13 +9,6 @@ A filter for toxic-words in English, Spanish, French, and Arabic
 
 ## Usage
 
-```js
-var Filter = require('unwashed-words'),
-    filter = new Filter();
-
-console.log(filter.clean("Don't be an ash0le")); //Don't be an a*****
-```
-
 ```jsx
 import React from 'react';
 import Filter from 'unwashed-words';
@@ -32,15 +25,14 @@ function App() {
 
 export default App;
 ```
+```js
+var Filter = require('unwashed-words'),
+    filter = new Filter();
+
+console.log(filter.clean("Don't be an ash0le")); //Don't be an a*****
+```
 
 ### Placeholder Overrides
-
-```js
-var Filter = require('unwashed-words');
-var customFilter = new Filter({ placeHolder: 'x'});
-
-customFilter.clean("Don't be an ash0le"); //Don't be an axxxxx
-```
 
 ```jsx
 import React from 'react';
@@ -58,30 +50,14 @@ function App() {
 
 export default App;
 ```
+```js
+var Filter = require('unwashed-words');
+var customFilter = new Filter({ placeHolder: 'x'});
+
+customFilter.clean("Don't be an ash0le"); //Don't be an axxxxx
+```
 
 ### Add words to the blacklist
-
-```js
-var filter = new Filter(); 
-
-filter.addWords('some', 'bad', 'word');
-
-filter.clean("some bad word!") //s*** b** w***!
-
-//or use an array using the spread operator
-
-var newBadWords = ['some', 'bad', 'word'];
-
-filter.addWords(...newBadWords);
-
-filter.clean("some bad word!") //s*** b** w***!
-
-//or
-
-var filter = new Filter({ list: ['some', 'bad', 'word'] }); 
-
-filter.clean("some bad word!") //s*** b** w***!
-```
 
 ```jsx
 import React from 'react';
@@ -91,16 +67,38 @@ function App() {
   const filter = new Filter();
 
   // Adding words to the blacklist
-  filter.addWords('some', 'bad', 'word');
+  filter.addWords('some', 'toxic', 'word');
 
   return (
     <div>
-      {filter.clean("some bad word!")} {/* Output: s*** b** w***! */}
+      {filter.clean("some toxic word!")} {/* Output: s*** t** w***! */}
     </div>
   );
 }
 
 export default App;
+```
+
+```js
+var filter = new Filter(); 
+
+filter.addWords('some', 'toxic', 'word');
+
+filter.clean("some toxic word!") //s*** t** w***!
+
+//or use an array using the spread operator
+
+var newBadWords = ['some', 'toxic', 'word'];
+
+filter.addWords(...newBadWords);
+
+filter.clean("some toxic word!") //s*** t** w***!
+
+//or
+
+var filter = new Filter({ list: ['some', 'toxic', 'word'] }); 
+
+filter.clean("some toxic word!") //s*** t** w***!
 ```
 
 ### Instantiate with an empty list
@@ -129,22 +127,6 @@ export default App;
 
 ### Remove words from the blacklist
 
-```js
-let filter = new Filter(); 
-
-filter.removeWords('hells', 'sadist');
-
-filter.clean("some hells word!"); //some hells word!
-
-//or use an array using the spread operator
-
-let removeWords = ['hells', 'sadist'];
-
-filter.removeWords(...removeWords);
-
-filter.clean("some sadist hells word!"); //some sadist hells word!
-```
-
 ```jsx
 import React from 'react';
 import Filter from 'unwashed-words';
@@ -164,6 +146,23 @@ function App() {
 
 export default App;
 ```
+
+```js
+let filter = new Filter(); 
+
+filter.removeWords('hells', 'sadist');
+
+filter.clean("some hells word!"); //some hells word!
+
+//or use an array using the spread operator
+
+let removeWords = ['hells', 'sadist'];
+
+filter.removeWords(...removeWords);
+
+filter.clean("some sadist hells word!"); //some sadist hells word!
+```
+
 
 
 #### constructor
