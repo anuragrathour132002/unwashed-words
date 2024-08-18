@@ -1,6 +1,6 @@
 {
   "name": "unwashed-words",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A javascript filter for unwashed words",
   "main": "./lib/unwashed-words",
   "directories": {
